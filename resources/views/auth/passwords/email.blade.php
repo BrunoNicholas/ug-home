@@ -1,47 +1,60 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
+@section('title') Reset Account Password @endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="col-md-9 ml-auto mr-auto mb-1 text-center"> <h3>Enter your email and check your inbox | {{ config('app.name') }}. </h3> </div>
+    </div>
+    <div class="row">
+      	<div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+        	<form class="form" method="POST" action="{{ route('password.email') }}">
+          		@csrf
+              @foreach ($errors->all() as $error)
+                  <p class="alert alert-danger">{{ $error }}</p>
+              @endforeach
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
+              @if (session('success'))
+                  <div class="alert alert-success">
+                      {{ session('success') }}
+                  </div>
+              @endif
+          		<div class="card card-login card-hidden">
+            		<div class="card-header card-header-rose text-center">
+              			<h4 class="card-title">Send Password Reset Request</h4>
+            		</div>
+            		<div class="card-body ">
+              			<span class="form-group  bmd-form-group" >
+                			<div class="input-group">
+                  				<div class="input-group-prepend">
+				                    <span class="input-group-text"> <i class="material-icons">email</i> </span>
+				                </div>
+                  				<input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="exampleEmails" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required autofocus>
+                  				@if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+              			</span>
+            		</div>
+		            <div class="card-footer justify-content-center">
+		              <button type="submit" class="btn btn-rose btn-link btn-lg">Reset Password</button>
+		            </div>
+          		</div>
+        	</form>
+        	<div class="row">
+          		<div class="col-6">
+                  @if (Route::has('password.request'))
+                      <a href="{{ route('password.request') }}" class="text-light">
+                      	  <small>{{ __('Forgot password?') }}</small>
+                  	  </a>
+                  @endif
                 </div>
-            </div>
-        </div>
+          		<div class="col-6 text-right">
+              		<a href="{{ route('register') }}" class="text-light">
+                  		<small>Create new account</small>
+              		</a>
+          		</div>
+        	</div>
+      	</div>
     </div>
-</div>
 @endsection

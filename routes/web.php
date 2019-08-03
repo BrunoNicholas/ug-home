@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'home', 'middleware' => ['auth','verified']], function(){
+	Route::resource('profile/{type}/messages', 'MessageController');
+	Route::resource('/questions', 'QuestionController');
+
+
+
+
+
+	
+	}
+);

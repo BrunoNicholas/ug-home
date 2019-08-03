@@ -1,0 +1,1 @@
+<button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown"> Total submitted forms is {{ sizeof($forms) }} </button>

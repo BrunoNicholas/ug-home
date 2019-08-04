@@ -16,6 +16,9 @@ class Question extends Model
     protected $fillable = [
         'topic',
         'description',
+        'user_name',
+        'email',
+        'telephone',
         'asked_by',
         'responder',
         'response',

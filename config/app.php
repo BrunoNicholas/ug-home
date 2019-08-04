@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'LandLegal Uganda'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://land-inug.000webhostapp.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', base64_decode('2ncsr34ttTmCptKkaYLZAr5AargVg/1Mf69csu+jnhU=')),
 
     'cipher' => 'AES-256-CBC',
 
@@ -174,6 +174,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Permissions And Roles
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        // Intervention Image
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -223,6 +227,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // Permissions And Roles
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        // Intervention Image
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

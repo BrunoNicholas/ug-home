@@ -21,6 +21,19 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->string('role')->nullable()->default('user');
+            $table->string('telephone')->nullable();
+            $table->string('location')->default('Kampala (Central), Uganda')->nullable();
+            $table->string('gender')->default('Unknown')->nullable();
+            $table->integer('age')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('maritual_status')->nullable()->default('single');
+            $table->string('profile_image')->default('profile.jpg')->nullable();
+            $table->string('occupation')->nullable()->default('Parent');
+            $table->string('nationality')->nullable()->default('Parent');
+            $table->text('bio')->nullable();
+            $table->string('status')->default('Active')->nullable();
         });
     }
 

@@ -18,7 +18,7 @@
       	<div class="collapse navbar-collapse justify-content-end">
         	<form class="navbar-form" action="#" method="POST">
           		<div class="input-group no-border">
-        			<input type="text" value="" name="" class="form-control" placeholder="Search...">
+        			<input type="text" value="" name="" class="form-control" placeholder="Search app...">
             		<button type="submit" class="btn btn-white btn-round btn-just-icon">
               			<i class="material-icons">search</i> <div class="ripple-container"></div>
         			</button>
@@ -38,7 +38,7 @@
             		</a>
 		            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 		              	<a class="dropdown-item" href="{{ route('profile') }}">Please update your profile!</a>
-		              	<a class="dropdown-item" href="{{ route('home') }}">Welcome to {{ config('app.name') }}</a>
+		              	<a class="dropdown-item" href="{{ url('/') }}">Welcome to {{ config('app.name') }}</a>
 		            </div>
           		</li>
           		<li class="nav-item dropdown">

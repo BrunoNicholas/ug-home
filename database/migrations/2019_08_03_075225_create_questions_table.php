@@ -15,7 +15,16 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('asked_by')->unsigned();
+            $table->integer('responder')->nullable()->unsigned();
+            $table->string('user_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('telephone')->nullable();
+            $table->text('response')->nullable();
+            $table->string('status')->default('Pending')->nullable();
             $table->timestamps();
+
+            $table->foreign('responder')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

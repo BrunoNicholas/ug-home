@@ -3,12 +3,18 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+use App\Models\Department;
+use App\Models\Question;
+use App\Models\Comment;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmailContract
+// class User extends Eloquent
 {
-    use Notifiable;
+    use Notifiable, EntrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +22,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', 'telephone', 'location', 'gender',
+        'age', 'date_of_birth', 'maritual_status', 'profile_image','occupation', 
+        'nationality', 'bio', 'status'
     ];
 
     /**
@@ -36,4 +44,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The relationship method for comments.
+     *
+     * as comments.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * The relationship method for departments.
+     *
+     * as departments.
+     */
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
+
+    /**
+     * The relationship method for questions.
+     *
+     * as questions.
+     */
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

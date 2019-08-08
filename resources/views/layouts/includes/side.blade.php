@@ -72,15 +72,21 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)">
+							<a class="nav-link" href="{{ route('questions.index') }}">
 								<span class="sidebar-mini"> AQ </span>
 								<span class="sidebar-normal"> Asked Questions </span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)">
+							<a class="nav-link" href="{{ route('organisations.index') }}">
 								<span class="sidebar-mini"> LO </span>
 								<span class="sidebar-normal"> Land Organisations </span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('titles.index') }}">
+								<span class="sidebar-mini"> LT </span>
+								<span class="sidebar-normal"> Land Titles </span>
 							</a>
 						</li>
 						<li class="nav-item ">
@@ -108,8 +114,13 @@
 							</a>
 						</li>
 						<li class="nav-item ">
-							<a class="nav-link" href="javascript:void(0)">
+							<a class="nav-link" href="javascript:void(0)" onclick="return alert('Feature still under developement!\nSorry for the incinvenience')">
 								<span class="sidebar-mini"> BD </span> <span class="sidebar-normal"> By District </span>
+							</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" href="{{ route('departments.index') }}">
+								<span class="sidebar-mini"> MD </span> <span class="sidebar-normal"> Management Departments </span>
 							</a>
 						</li>
 					</ul>

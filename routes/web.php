@@ -14,6 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/web/questions', [
+	'as' 	=> 'questions',
+	'uses'	=> function(){
+		return view('web.questions');
+	}
+]);
+Route::get('/web/posts', [
+	'as' 	=> 'posts',
+	'uses'	=> function(){
+		return view('web.posts');
+	}
+]);
+Route::get('terms-and-conditions', [
+	'as' 	=> 'terms',
+	'uses'	=> function(){
+		return view('web.terms');
+	}
+]);
 Route::get('details', [
 	'as' 	=> 'more.details',
 	'uses'	=> function(){
@@ -50,6 +68,7 @@ Route::group(['prefix' => 'home', 'middleware' => ['auth','verified']], function
 	Route::resource('buying/organisations', 'OrganisationController');
 	Route::resource('/land/posts', 'PostController');
 	Route::resource('land/titles', 'LandTileController');
+	Route::resource('system/departments', 'DepartmentController');
 
 
 

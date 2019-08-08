@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Organisation;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 
-class OrganisationController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        return view('system.organisations.index');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class OrganisationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Organisation  $organisation
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(Organisation $organisation)
+    public function show(Rating $rating)
     {
         //
     }
@@ -52,10 +52,10 @@ class OrganisationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Organisation  $organisation
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organisation $organisation)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -64,10 +64,10 @@ class OrganisationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Organisation  $organisation
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organisation $organisation)
+    public function update(Request $request, Rating $rating)
     {
         //
     }
@@ -75,10 +75,10 @@ class OrganisationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Organisation  $organisation
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organisation $organisation)
+    public function destroy(Rating $rating)
     {
         //
     }

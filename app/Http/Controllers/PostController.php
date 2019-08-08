@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest()->paginate();
+        return view('system.posts.index',compact(['posts']));
     }
 
     /**
@@ -24,7 +25,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $posts = Post::latest()->paginate();
+        return view('system.posts.create',compact(['posts']));
     }
 
     /**
@@ -35,7 +37,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name'      => 'required',
+            'created_by'     => 'required',
+            'status' => 'required',
+        ]);
+        Post::create($request->all());
+        return redirect()->route('posts.index')->with('success','Post has been created successfully');
     }
 
     /**
@@ -44,9 +52,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+        $posts = Post::latest()->paginate();
+        return view('system.posts.show',compact(['posts','post']));
     }
 
     /**
@@ -55,9 +65,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $posts = Post::latest()->paginate();
+        return view('system.posts.edit',compact(['posts','post']));
     }
 
     /**
@@ -67,7 +79,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,8 +90,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        $item = Post::find($id);
+        $item->delete();
+
+        return back()->with('danger', 'Department deleted successfully!');
     }
 }

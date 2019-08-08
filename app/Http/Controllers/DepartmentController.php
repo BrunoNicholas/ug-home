@@ -116,8 +116,8 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $department = Department::find($id);
-        $department->delete();
+        $item = Department::find($id);
+        $item->delete();
 
         return back()->with('danger', 'Department deleted successfully!');
     }

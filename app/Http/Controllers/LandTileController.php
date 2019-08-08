@@ -14,7 +14,7 @@ class LandTileController extends Controller
      */
     public function index()
     {
-        //
+        return view('system.titles.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class LandTileController extends Controller
      */
     public function create()
     {
-        //
+        return view('system.titles.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class LandTileController extends Controller
      */
     public function show(LandTile $landTile)
     {
-        //
+        return view('system.titles.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class LandTileController extends Controller
      */
     public function edit(LandTile $landTile)
     {
-        //
+        return view('system.titles.edit');
     }
 
     /**
